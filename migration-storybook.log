@@ -1,0 +1,162 @@
+🔎 checking possible migrations..
+
+🔎 found a 'mainjsFramework' migration:
+╭ Automigration detected ──────────────────────────────────────────────────────────────────╮
+│                                                                                          │
+│   We've detected that your main.js configuration file does not specify the               │
+│   'framework' field, which is a requirement in SB7.0 and above. We can add one           │
+│   for you automatically:                                                                 │
+│                                                                                          │
+│   framework: '@storybook/react'                                                          │
+│                                                                                          │
+│   More info: https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#mainjs-fr   │
+│   amework-field                                                                          │
+│                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────╯
+[?25l? Do you want to run the 'mainjsFramework' migration on your project? › (Y/n)[2K[G✔ Do you want to run the 'mainjsFramework' migration on your project? … yes
+[?25h✅ Setting 'framework' to '@storybook/react' in main.js
+✅ ran mainjsFramework migration
+
+🔎 found a 'eslintPlugin' migration:
+╭ Automigration detected ──────────────────────────────────────────────────────────────────╮
+│                                                                                          │
+│   We've detected you are not using our eslint-plugin.                                    │
+│                                                                                          │
+│   In order to have the best experience with Storybook and follow best practices, we      │
+│   advise you to install eslint-plugin-storybook.                                         │
+│                                                                                          │
+│   More info: https://github.com/storybookjs/eslint-plugin-storybook#readme               │
+│                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────╯
+[?25l? Do you want to run the 'eslintPlugin' migration on your project? › (Y/n)[2K[G✔ Do you want to run the 'eslintPlugin' migration on your project? … yes
+[?25h✅ Adding dependencies: eslint-plugin-storybook
+✅ Adding Storybook plugin to .eslintrc.json
+✅ ran eslintPlugin migration
+
+🔎 found a 'storybook-binary' migration:
+╭ Automigration detected ──────────────────────────────────────────────────────────────────╮
+│                                                                                          │
+│   We've detected you are using Storybook ^7.0.0-beta.33 without Storybook's storybook    │
+│   binary. Starting in Storybook 7.0, it has to be installed.                             │
+│                                                                                          │
+│                                                                                          │
+│   More info: https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#start-sto   │
+│   rybook--build-storybook-binaries-removed                                               │
+│                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────╯
+[?25l? Do you want to run the 'storybook-binary' migration on your project? › (Y/n)[2K[G✔ Do you want to run the 'storybook-binary' migration on your project? … yes
+[?25h
+✅ Adding 'storybook' as dev dependency
+
+✅ ran storybook-binary migration
+
+🔎 found a 'newFrameworks' migration:
+╭ Automigration detected ──────────────────────────────────────────────────────────────────╮
+│                                                                                          │
+│   We've detected you are using an older format of Storybook frameworks and builders.     │
+│                                                                                          │
+│   In Storybook 7, frameworks also specify the builder to be used.                        │
+│                                                                                          │
+│   We can remove the dependencies that are no longer needed: @storybook/builder-vite      │
+│                                                                                          │
+│   And set up the @storybook/react-vite framework that already includes the builder.      │
+│                                                                                          │
+│   To learn more about the framework field, see: https://github.com/storybookjs/storybo   │
+│   ok/blob/next/MIGRATION.md#framework-field-mandatory                                    │
+│                                                                                          │
+│   Webpack4 users                                                                         │
+│                                                                                          │
+│   Unless you're using Storybook's Vite builder, this automigration will install a        │
+│   Webpack5-based framework.                                                              │
+│                                                                                          │
+│   If you were using Storybook's Webpack4 builder (default in 6.x, discontinued in        │
+│   7.0), this could be a breaking                                                         │
+│   change -- especially if your project has a custom webpack configuration.               │
+│                                                                                          │
+│   To learn more about migrating from Webpack4, see: https://github.com/storybookjs/sto   │
+│   rybook/blob/next/MIGRATION.md#webpack4-support-discontinued                            │
+│                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────╯
+[?25l? Do you want to run the 'newFrameworks' migration on your project? › (Y/n)[2K[G✔ Do you want to run the 'newFrameworks' migration on your project? … yes
+[?25h✅ Removing legacy dependencies: @storybook/builder-vite
+✅ Installing new dependencies: @storybook/react-vite
+✅ Updating framework field in main.js
+❌ error when running newFrameworks migration
+ReferenceError: rootMain is not defined
+    at eval (eval at getFieldValue (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/csf-tools/dist/index.js:74:6187), <anonymous>:1:9)
+    at eval (eval at getFieldValue (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/csf-tools/dist/index.js:74:6187), <anonymous>:4:4)
+    at eval (<anonymous>)
+    at ConfigFile.getFieldValue (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/csf-tools/dist/index.js:74:6187)
+    at Object.run (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/cli/dist/generate.js:202:782)
+    at automigrate (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/cli/dist/generate.js:313:1151)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async doUpgrade (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/cli/dist/generate.js:382:2883)
+    at async withTelemetry (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/core-server/dist/index.js:33:5540)
+    at async upgrade (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/cli/dist/generate.js:382:3177)
+
+
+🔎 found a 'autodocsTrue' migration:
+╭ Automigration detected ──────────────────────────────────────────────────────────────────╮
+│                                                                                          │
+│   We've detected that your main.js configuration file has not configured autodocs. In    │
+│   6.x we                                                                                 │
+│   we defaulted to having a autodocs for every story, in 7.x you need to opt in           │
+│   per-component.                                                                         │
+│   However, we can set the `docs.autodocs` to true to approximate the old behaviour:      │
+│                                                                                          │
+│   docs: { autodocs: true }                                                               │
+│                                                                                          │
+│   More info: https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#autodocs    │
+│                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────╯
+[?25l? Do you want to run the 'autodocsTrue' migration on your project? › (Y/n)[2K[G✔ Do you want to run the 'autodocsTrue' migration on your project? … yes
+[?25h✅ Setting 'docs.autodocs' to true in main.js
+✅ ran autodocsTrue migration
+
+⚠️  failed to check fix missing-babelrc
+
+Error: The given node must be a string literal or an object expression with a "name" property that is a string literal.
+    at ConfigFile._getPresetValue (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/csf-tools/dist/index.js:74:7388)
+    at /Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/csf-tools/dist/index.js:74:7029
+    at Array.forEach (<anonymous>)
+    at ConfigFile.getNamesFromPath (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/csf-tools/dist/index.js:74:6991)
+    at Object.check (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/cli/dist/generate.js:296:298)
+    at async automigrate (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/cli/dist/generate.js:311:743)
+    at async doUpgrade (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/cli/dist/generate.js:382:2883)
+    at async withTelemetry (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/core-server/dist/index.js:33:5540)
+    at async upgrade (/Users/katerina/.npm/_npx/eb8bf615e50a412a/node_modules/@storybook/cli/dist/generate.js:382:3177)
+
+╭ Migration check ran with failures ───────────────────────────────────────────────────────╮
+│                                                                                          │
+│                                                                                          │
+│   Successful migrations:                                                                 │
+│                                                                                          │
+│   mainjsFramework, eslintPlugin, storybook-binary, autodocsTrue                          │
+│                                                                                          │
+│   Failed migrations:                                                                     │
+│                                                                                          │
+│   newFrameworks:                                                                         │
+│   rootMain is not defined                                                                │
+│                                                                                          │
+│   missing-babelrc:                                                                       │
+│   The given node must be a string literal or an object expression with a "name"          │
+│   property that is a string literal.                                                     │
+│                                                                                          │
+│                                                                                          │
+│   You can find the full logs in /Users/katerina/Projects/nrwl/test_nx_workspaces/story   │
+│   reactalone18/migration-storybook.log                                                   │
+│                                                                                          │
+│   ─────────────────────────────────────────────────                                      │
+│                                                                                          │
+│   If you'd like to run the migrations again, you can do so by running 'npx               │
+│   storybook@next automigrate'                                                            │
+│                                                                                          │
+│   The automigrations try to migrate common patterns in your project, but might not       │
+│   contain everything needed to migrate to the latest version of Storybook.               │
+│                                                                                          │
+│   Please check the changelog and migration guide for manual migrations and more          │
+│   information: https://storybook.js.org/migration-guides/7.0                             │
+│   And reach out on Discord if you need help: https://discord.gg/storybook                │
+│                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────╯
+
